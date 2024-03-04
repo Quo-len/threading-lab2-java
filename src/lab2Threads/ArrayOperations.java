@@ -26,16 +26,8 @@ public class ArrayOperations {
 	public void findMinElementParallel() {
 		int[] indexes = splitArrIntoChunks();
 		
-		  for (int i = 0; i < indexes.length; i++) {
-	            System.out.print(indexes[i]);
-	            if (i < indexes.length - 1) {
-	                System.out.print(" ");
-	            }
-	        }
-	        System.out.println();
-		
 		for(int i = 0; i < numOfThreads; i++) {
-			new Thread(new FindMinElement(this, array, indexes[i], indexes[i+1])).start();;
+			new Thread(new FindLowestValue(this, array, indexes[i], indexes[i+1])).start();;
 		}
 		
 		try {
@@ -46,17 +38,7 @@ public class ArrayOperations {
 		System.out.println("Minimal element in array - " + array[minValIdx]);
 		System.out.println("Index of minimal element in array - " + minValIdx);
 	}
-	
-	public void findMinElement() {
-		int currentMinIdx = 0;
-		for(int i = 0; i < array.length; i++) {
-			if (array[i] < array[currentMinIdx])
-				currentMinIdx = i;
-		}
-		System.out.println("Minimal element in array - " + array[currentMinIdx]);
-		System.out.println("Index of minimal element in array - " + currentMinIdx);
-	}
-	
+
 	public void initializeArray() {
 		for(int i = 0; i < array.length; i++) {
 			array[i] = i;

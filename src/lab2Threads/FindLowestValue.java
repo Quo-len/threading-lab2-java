@@ -1,13 +1,13 @@
 package lab2Threads;
 
-public class FindMinElement implements Runnable {
+public class FindLowestValue implements Runnable {
 
 	private int[] array;
 	private int startIdx;
 	private int endIdx;
 	private ArrayOperations operation;
 	
-	public FindMinElement(ArrayOperations operation, int[] array, int startIdx, int endIdx) {
+	public FindLowestValue(ArrayOperations operation, int[] array, int startIdx, int endIdx) {
 		this.startIdx = startIdx;
 		this.endIdx = endIdx;
 		this.array = array;
